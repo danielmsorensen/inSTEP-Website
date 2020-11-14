@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inSTEP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script>
+        let page1, page2;
 
+        document.addEventListener("DOMContentLoaded", () => {
+            page1 = document.getElementById("Page1");
+            page2 = document.getElementById("Page2");
+            page3 = document.getElementById("Page3");
+            page4 = document.getElementById("Page4");
+        });
+
+        function showPage1() {
+                page1.style.display = "block";
+                page2.style.display = "none";
+            }
+        function showPage2() {
+            page1.style.display = "none";
+            page2.style.display = "block";
+        }
+
+    </script>
+    
 
 </head>
 
@@ -17,41 +36,41 @@
             <img src="img/LogoMakr-2rbSr8.png" alt="inSTEP Logo">
         </header>
         <nav>
-            <a href="#home">HOME</a>
-            <a href="#teachers">TEACHERS</a>
+            <a href="javascript:void(0)" onclick="showPage1()">HOME</a>
+            <a href="javascript:void(0)" onclick="showPage2()">TEACHERS</a>
             <a href="#class">CLASS</a>
-            <a href="#contact">CONTACT</a>
-            <a href="#game">GAME</a>
+            <a href="#GAME">GAME</a>
+        
         </nav>
-        <div id="app"></div>
+    
         <main>
-            <h1>
-                Let's Move 
-            </h1>
-            <p>Bring teachers and students togethor with interactive learning! Get started creating a new class by clicking the button to generate a unique id.</p>
+            <div id="Page1">
+                <h1>
+                    Let's Move 
+                </h1>
+                <p>Bring teachers and students togethor with interactive learning! Get started creating a new class by clicking the button to generate a unique id.</p>
 
-            <form action="">
-                <label class="idlabel" for="randomidgen">Enter ID for your class:</label>
-                <input id="randomidgen" type="text" class="random" maxlength="25">
-                <button class="random_id" type="submit">
-                    <i class="fas fa-plus-square"></i>
-                </button>
-            </form>
-            <p id="show" class="boxed"></p>
+                <form action="">
+                    <label class="idlabel" for="randomidgen">Enter ID for your class:</label>
+                    <input id="randomidgen" type="text" class="random" maxlength="25">
+                    <button class="random_id" type="submit">
+                        <i class="fas fa-plus-square"></i>
+                    </button>
+                </form>
+                <p id="show" class="boxed"></p>
+            </div>
 
-            <div id="main" class="hide">
-                <div id="gamepage">
-                    <p>This section is about..</p>
-                </div>
+            <div id="Page2" style="display: none;">
+                    <p>This section is about.. teachers</p>
+            </div>
     
-                <div id="Leaderboard">
-                    <p>This section is about..</p>
+            <div id="Page3" style="display: none;">
+                    <p>The students are...</p>
+            </div>
+            <div id="page4" style="display: none;">
+                        <p>game page</p>
                 </div>
-    
-                <div id="Teacher">
-                        <p>Teachers</p>
-                </div>
-        </div>
+        
 
         </main>
         
