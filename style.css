@@ -91,6 +91,9 @@ form button {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.game-btn {
+    background: none;
+}
 form button:hover {
     background: #65a4f6;
     color: white;
@@ -105,6 +108,7 @@ form input, form button {
 .boxed {
     text-align: center;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 .hide {
