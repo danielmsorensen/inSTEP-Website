@@ -20,7 +20,7 @@ async function generateid(event) {
     //const url = "https://dxdunwhca3.execute-api.eu-west-2.amazonaws.com/classIDCreate";
     const params = {"classID": user_id};
     lambda.invoke({
-        FunctionName: 'classIDValid',
+        FunctionName: 'classIDCreate',
         Payload: JSON.stringify({
             classID: user_id
         })
@@ -29,7 +29,15 @@ async function generateid(event) {
             console.log(err, err.stack);
         }
         else {
-            console.log(data);
+            if (console.Payload == "ClassIDSet") {
+                showPage2();
+            }
+            else {
+                var error = document.getElementById("error")
+                error.innerHTML = "<span style='color: red;'>"+ 
+                "Class ID taken, please enter another</span>"
+
+            }
         }
     });
     
