@@ -16,11 +16,12 @@ AWS.config = new AWS.Config({
 const lambda = new AWS.Lambda();
 let Names = [];
 let vals = [];
+let user_id;
 //let students_names = ["Daniel","Edward","Dan","Suzanne","Eric","Eliza","Gurtrude"];
 let intervalID;
 async function generateid(event) {
     event.preventDefault();
-    let user_id = document.getElementById("randomidgen").value;
+    user_id = document.getElementById("randomidgen").value;
     //document.getElementById("show").innerHTML = user_id;
     //const url = "https://dxdunwhca3.execute-api.eu-west-2.amazonaws.com/classIDCreate";
     const params = {"classID": user_id};
@@ -85,13 +86,30 @@ function clearall(event) {
 }
 function startgame(event) {
     event.preventDefault();
+    const params = {"classID": user_id};
     ingame = !ingame;
-    if (ingame) {
-        console.log("game has started...");
-        document.getElementById("container").style.border = "2rem solid #00FF00";
-    }
-    else {
-        console.log("game has ended...")
-        document.getElementById("container").style.border = "none";
-    }
+        intervalID = setInterval(() => {
+            lambda.invoke({
+                FunctionName:"startGame",
+                Payload: JSON.stringify({
+                    classID: user_id
+                })
+            },  (err3,data3) => {
+                if (err3) {
+                    console.log(err3, err3.stack);
+                }
+                else {
+                    if (ingame) {
+                        console.log("game has started...");
+                        document.getElementById("container").style.border = "2rem solid #00FF00";
+                    }
+                    else {
+                        console.log("game has ended...")
+                        document.getElementById("container").style.border = "none";
+                    }
+                }
+            
+            });
+        }, 1000);
+        
 }
