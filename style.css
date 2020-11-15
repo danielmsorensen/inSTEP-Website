@@ -100,7 +100,7 @@ form button:hover {
     color: rgb(255, 255, 255);
 }
 
-#secondaryButton:hover {
+.secondaryButton:hover {
     background: rgba(255, 165, 0, 0);
     color: rgb(255, 255, 255);
 }

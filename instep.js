@@ -95,14 +95,3 @@ function startgame(event) {
         document.getElementById("container").style.border = "none";
     }
 }
-function create_table(tbl) {
-    
-    var r = tbl[0].map(function(col, i) {
-        return tbl.map(function(row) {
-            return row[i];
-        });
-    });
-    r.forEach(function(e){
-        table.innerHTML += "<tr><td width='50%'>" + e[0] + "</td><td width='50%'>" + e[1] + "</td></tr>"
-    })
-}
