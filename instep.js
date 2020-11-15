@@ -29,7 +29,7 @@ async function generateid(event) {
             console.log(err, err.stack);
         }
         else {
-            if (console.Payload == "ClassIDSet") {
+            if (JSON.parse(data.Payload).body == "ClassIDSet") {
                 showPage2();
             }
             else {
