@@ -124,7 +124,7 @@ function create_table(tbl) {
     });
 
     r.forEach(function(e){
-        table.innerHTML += "<tr><td>" + e[0] + "</td><td>" + e[1] + "</td></tr>"
+        table.innerHTML += "<tr><td width='50%'>" + e[0] + "</td><td width='50%'>" + e[1] + "</td></tr>"
     })
     
 }
