@@ -91,18 +91,24 @@ form button {
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.game-btn {
+.clear-btn {
     background: none;
 }
+
 form button:hover {
     background: #65a4f6;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 form input, form button {
     padding: 0.5rem;
     font-size: 2rem;
     border: none;
     background:white;
+}
+form .game-btn {
+    background: none;
+    float: right !important;
+
 }
 
 .boxed {
@@ -116,4 +122,11 @@ form input, form button {
 }
 #main {
     display: none;
+}
+table {
+    width: 100%;
+    
+}
+table,tbody {
+    border: 1px solid white;
 }

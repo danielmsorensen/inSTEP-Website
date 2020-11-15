@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container" class="container">
         <header>
             <img src="img/LogoMakr-2rbSr8.png" alt="inSTEP Logo">
         </header>
@@ -64,12 +64,24 @@
                     <p id="topelement" class="boxed"></p>
                     <p id="show2" class="boxed"></p>
                     <form action="">
-                        <label for="game-inpt-btn" class="idlabel">Stop Sharing</label>
+                        <label for="clear-inpt-btn" class="idlabel">Stop Sharing</label>
+                        <input id="clear-inpt-btn" type="hidden" class="random">
+                        <button class="clear-btn" type="submit">
+                            <i class="fas fa-plus-square"></i>
+                        </button>
+                    </form>
+                    <table>
+                        <tbody></tbody>
+                    </table>
+                    <form action="">
+                        <label for="game-inpt-btn" class="idlabel">Click button to start or end game</label>
                         <input id="game-inpt-btn" type="hidden" class="random">
                         <button class="game-btn" type="submit">
                             <i class="fas fa-plus-square"></i>
                         </button>
+                        
                     </form>
+
 
 
 
