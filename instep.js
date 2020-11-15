@@ -1,4 +1,3 @@
-
 //To show the randomly generated id
 const randomise = document.querySelector(".random_id");
 let l = randomise.addEventListener("click", generateid);
@@ -7,7 +6,6 @@ let la = clear.addEventListener("click", clearall);
 let game_start = document.querySelector(".game-btn");
 game_start.addEventListener("click", startgame);
 let ingame = false;
-
 const credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: "eu-west-2:793871cb-c8a9-45bf-b20d-97df75ddbce7"
 });
@@ -15,13 +13,11 @@ AWS.config = new AWS.Config({
   credentials,
   region: "eu-west-2"
 });
-
 const lambda = new AWS.Lambda();
 let Names = [];
 let vals = [];
 //let students_names = ["Daniel","Edward","Dan","Suzanne","Eric","Eliza","Gurtrude"];
 let intervalID;
-
 async function generateid(event) {
     event.preventDefault();
     let user_id = document.getElementById("randomidgen").value;
@@ -55,18 +51,16 @@ async function generateid(event) {
                             console.log(err2, err2.stack);
                         }
                         else {
-                            const result = JSON.parse(data2.Payload).body;
-                            const names = result.names;
-                            const values = result.values;
-
+							var table = document.querySelector("table tbody");
+							table.innerHTML = "";
+							
+                            const result = JSON.parse(data2.Payload);
+                            const names = result[0];
+                            const values = result[1];
                             for(let i = 0; i < names.length; i++) {
                                 const name = names[i];
                                 const value = values[i];
-
-                                Names[i] = name;
-                                vals[i] = value;
-                                
-
+                                table.innerHTML += "<tr><td>" + name + "</td><td>" + value + "</td></tr>"
                             }
                             
                             //let p = document.getElementById("show2")
@@ -74,19 +68,12 @@ async function generateid(event) {
                         }
                     });
                 }, 1000);
-               
-                var ar =[Names, vals];
-                create_table(ar);
-
-                
-
             }
             else {
                 var error = document.getElementById("error")
                 error.innerHTML = "<span style='color: red;'>"+ 
                 "Class ID taken, please enter another</span>"
               
-
             }
         }
     });
@@ -102,29 +89,20 @@ function startgame(event) {
     if (ingame) {
         console.log("game has started...");
         document.getElementById("container").style.border = "2rem solid #00FF00";
-
     }
     else {
         console.log("game has ended...")
         document.getElementById("container").style.border = "none";
-
     }
-    
-    
-    
-
 }
 function create_table(tbl) {
-    var table = document.querySelector("table tbody");
-
+    
     var r = tbl[0].map(function(col, i) {
         return tbl.map(function(row) {
             return row[i];
         });
     });
-
     r.forEach(function(e){
         table.innerHTML += "<tr><td width='50%'>" + e[0] + "</td><td width='50%'>" + e[1] + "</td></tr>"
     })
-    
 }
