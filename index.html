@@ -32,26 +32,26 @@
 
 <body>
     <div id="container" class="container">
-        <header>
+        <header style="padding-top:2rem;">
             <img src="img/LogoMakr-2rbSr8.png" alt="inSTEP Logo">
         </header>
-        <nav>
+<!--        <nav>
             <a href="javascript:void(0)" onclick="showPage1()">HOME</a>
             <a href="javascript:void(0)" onclick="showPage2()">TEACHER</a>
             
         
-        </nav>
+        </nav>-->
     
         <main>
             <div id="Page1">
                 <h1>
                     Let's Move 
                 </h1>
-                <p>Bring teachers and students togethor with interactive learning! Get started creating a new class id for your students to use.</p>
+                <p>Bring teachers and students together with interactive learning! Get started by creating a new Class ID for your students to use.</p>
 
                 <form action="">
                     <label class="idlabel" for="randomidgen">Enter ID for your class:</label>
-                    <input id="randomidgen" type="text" class="random" maxlength="25">
+                    <input id="randomidgen" type="text" class="random"  style="margin-left: 10px;" maxlength="25">
                     <button class="random_id" type="submit">
                         <i class="fas fa-plus-square"></i>
                     </button>
@@ -60,13 +60,13 @@
                 <p id="error" class="boxed"></p>
             </div>
 
-            <div id="Page2" style="display: none;" class="boxed">
+            <div id="Page2" style="display: none;" class="boxed"  style="font-size: large;"> 
                     <p id="topelement" class="boxed"></p>
                     <p id="show2" class="boxed"></p>
                     <form action="">
                         <label for="clear-inpt-btn" class="idlabel">Stop Sharing</label>
                         <input id="clear-inpt-btn" type="hidden" class="random">
-                        <button class="clear-btn" type="submit">
+                        <button class="clear-btn" id="secondaryButton" type="submit">
                             <i class="fas fa-plus-square"></i>
                         </button>
                     </form>
@@ -76,7 +76,7 @@
                     <form action="">
                         <label for="game-inpt-btn" class="idlabel">Click button to start or end game</label>
                         <input id="game-inpt-btn" type="hidden" class="random">
-                        <button class="game-btn" type="submit">
+                        <button class="game-btn" id="secondaryButton" type="submit">
                             <i class="fas fa-plus-square"></i>
                         </button>
                         
@@ -93,7 +93,7 @@
         
     
         <footer>
-            <p>196 Oxford St, Fitzroia, London W1D 1NT- Copyright 2017©</p>
+            <p style="font: 30px;">DurHack2020 - Dan Sørensen, Suzanne O, and Ed Sleath</p>
         </footer>
        
         <script src="instep.js"></script>
